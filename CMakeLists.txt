@@ -17,6 +17,16 @@ if (NOT CMAKE_BUILD_TYPE OR "${CMAKE_BUILD_TYPE}" STREQUAL "")
     message(WARNING "CMAKE_BUILD_TYPE undefined. Defaulting to Release.")
 endif ()
 
+if (${CMAKE_BUILD_TYPE} MATCHES "Release")
+    include(CheckIPOSupported)
+    check_ipo_supported(RESULT IPO_Supported OUTPUT ErrorMessage)
+
+    if (IPO_Supported)
+        set(CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
+        message(STATUS "Interprocedural optimizations enabled")
+    endif ()
+endif ()
+
 include(cmake/options.cmake)  # *needs to be first*
 include(cmake/warnings.cmake)
 include(cmake/flags.cmake)
