@@ -5,6 +5,7 @@ set(CMAKE_VERBOSE_MAKEFILE OFF) # turn on to debug Makefile builds
 
 # template: change to your project name, will be used for #define prefixes
 #  example: CPPTEMPLATE will be used for CPPTEMPLATE_DEBUG=X, CPPTEMPLATE_FOO=BAR, ...
+# FIXME: (in your project), find and replace all instances of 'CPPTEMPLATE' to your desired prefix
 set(PROJECT_PREFIX CPPTEMPLATE)
 
 if (NOT "${CMAKE_CXX_STANDARD}")
