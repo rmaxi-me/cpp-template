@@ -19,9 +19,7 @@
 
 #include "ScopedProfiler.hpp"
 
-#include <iomanip>
 #include <iostream>
-#include <sstream>
 
 utils::ScopedProfiler::ScopedProfiler(const char* name) noexcept : m_start{Clock::now()}, m_name{name}
 {
@@ -33,12 +31,5 @@ utils::ScopedProfiler::~ScopedProfiler()
     const DurationSeconds durationSeconds = end - m_start;
     const DurationMillis durationMillis = durationSeconds;
 
-    std::ostringstream oss{};
-
-    /*if (durationSeconds.count() >= 1)
-        oss << durationSeconds.count() << "s";
-    else*/
-    oss << durationMillis.count() << "ms";
-
-    std::cerr << m_name << " => " << oss.str() << '\n';
+    std::cerr << m_name << " => " << durationMillis.count() << "ms" << '\n';
 }
