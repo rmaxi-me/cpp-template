@@ -20,7 +20,7 @@ I will make a conan version soon™.
 * `.clang-format` for the style
 * GitHub Action workflow to build the project
 * CMake configurations, compiler warnings and cool flags
-* lib/exe seperation that is easily removable for executable-only projects
+* lib/exe separation that is easily removable for executable-only projects
 * Some C++ utility things I may need:
   * `ScopedProfiler`: Code profiling using RAII, useful for quickly benchmarking code without using big profilers. (you should still profile your code with normal profilers!)
   * *Maybe more in the future?*
