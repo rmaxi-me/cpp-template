@@ -19,34 +19,11 @@
 
 #pragma once
 
-#include <chrono>
-#include <utility>
-
-#include "Macros.hpp"
-#include "Time.hpp"
-
-// template: adapt to your preferred namespace
-namespace cpptemplate {
-class ScopedProfiler final
-{
-public:
-    explicit ScopedProfiler(const char* name) noexcept;
-    ~ScopedProfiler();
-
-    ScopedProfiler(ScopedProfiler&&) = delete;
-    ScopedProfiler(const ScopedProfiler&) = delete;
-    ScopedProfiler& operator=(ScopedProfiler&&) = delete;
-    ScopedProfiler& operator=(const ScopedProfiler&) = delete;
-
-private:
-    const TimePoint m_start;
-    const char* const m_name;
-};
-}  // namespace cpptemplate
-
-#if CPPTEMPLATE_WITH_SCOPED_PROFILER
-    #define CPPTEMPLATE_SCOPED_PROFILER(x) \
-        const cpptemplate::ScopedProfiler CPPTEMPLATE_STRCAT(_SCOPED_PROFILER_, __LINE__)(x)
-#else
-    #define CPPTEMPLATE_SCOPED_PROFILER(x) (void) 0
-#endif
+/**
+ * Forces a compile error and shows the type of a variable.
+ * Useful tool when searching for an auto type or deep library calls.
+ * Inspired from Scott Meyers' Effective C++ book.
+ * @tparam T Type you are looking for, use decltype of the variable to detect it.
+ */
+template<typename T>
+class [[maybe_unused]] TypeChecker;
