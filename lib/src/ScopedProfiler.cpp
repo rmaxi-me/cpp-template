@@ -21,11 +21,11 @@
 
 #include <iostream>
 
-utils::ScopedProfiler::ScopedProfiler(const char* name) noexcept : m_start{Clock::now()}, m_name{name}
+cpptemplate::ScopedProfiler::ScopedProfiler(const char* name) noexcept : m_start{Clock::now()}, m_name{name}
 {
 }
 
-utils::ScopedProfiler::~ScopedProfiler()
+cpptemplate::ScopedProfiler::~ScopedProfiler()
 {
     const auto end = Clock::now();
     const DurationSeconds durationSeconds = end - m_start;

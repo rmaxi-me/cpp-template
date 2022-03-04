@@ -19,34 +19,43 @@
 
 #pragma once
 
+#include <array>
 #include <chrono>
-#include <utility>
+#include <functional>
+#include <optional>
+#include <string>
 
-#include "Macros.hpp"
 #include "Time.hpp"
 
-// template: adapt to your preferred namespace
 namespace cpptemplate {
-class ScopedProfiler final
+class FrameManager final
 {
 public:
-    explicit ScopedProfiler(const char* name) noexcept;
-    ~ScopedProfiler();
+    using OnSecondCallback = std::function<void(const FrameManager& frameManager)>;
+    using FramerateStringBuffer = std::array<char, 16>;
 
-    ScopedProfiler(ScopedProfiler&&) = delete;
-    ScopedProfiler(const ScopedProfiler&) = delete;
-    ScopedProfiler& operator=(ScopedProfiler&&) = delete;
-    ScopedProfiler& operator=(const ScopedProfiler&) = delete;
+    FrameManager();
+
+    void update() noexcept;
+
+    void setOnSecondCallback(const OnSecondCallback& func) noexcept { m_onSecondCallback = func; }
+
+    [[nodiscard]] auto getDeltaTime() const noexcept { return m_deltaTime; }
+    [[nodiscard]] auto getFPS() const noexcept { return m_framerate; }
+    [[nodiscard]] FramerateStringBuffer getFramerateCString() const noexcept;
+    [[nodiscard]] std::string getFramerateString() const noexcept;
 
 private:
-    const TimePoint m_start;
-    const char* const m_name;
+    DurationSeconds m_duration{};
+    TimePoint m_lastFrame{};
+    TimePoint m_lastSecond{};
+
+    float m_deltaTime{};
+    uint32_t m_framerate{};
+    uint32_t m_frameCounter{};
+
+    std::optional<OnSecondCallback> m_onSecondCallback{std::nullopt};
 };
 }  // namespace cpptemplate
 
-#if CPPTEMPLATE_WITH_SCOPED_PROFILER
-    #define CPPTEMPLATE_SCOPED_PROFILER(x) \
-        const cpptemplate::ScopedProfiler CPPTEMPLATE_STRCAT(_SCOPED_PROFILER_, __LINE__)(x)
-#else
-    #define CPPTEMPLATE_SCOPED_PROFILER(x) (void) 0
-#endif
+std::ostream& operator<<(std::ostream& os, const cpptemplate::FrameManager& frameManager);

@@ -20,33 +20,10 @@
 #pragma once
 
 #include <chrono>
-#include <utility>
 
-#include "Macros.hpp"
-#include "Time.hpp"
-
-// template: adapt to your preferred namespace
 namespace cpptemplate {
-class ScopedProfiler final
-{
-public:
-    explicit ScopedProfiler(const char* name) noexcept;
-    ~ScopedProfiler();
-
-    ScopedProfiler(ScopedProfiler&&) = delete;
-    ScopedProfiler(const ScopedProfiler&) = delete;
-    ScopedProfiler& operator=(ScopedProfiler&&) = delete;
-    ScopedProfiler& operator=(const ScopedProfiler&) = delete;
-
-private:
-    const TimePoint m_start;
-    const char* const m_name;
-};
+using Clock = std::chrono::high_resolution_clock;
+using TimePoint = decltype(Clock::now());
+using DurationSeconds = std::chrono::duration<float>;
+using DurationMillis = std::chrono::duration<float, std::milli>;
 }  // namespace cpptemplate
-
-#if CPPTEMPLATE_WITH_SCOPED_PROFILER
-    #define CPPTEMPLATE_SCOPED_PROFILER(x) \
-        const cpptemplate::ScopedProfiler CPPTEMPLATE_STRCAT(_SCOPED_PROFILER_, __LINE__)(x)
-#else
-    #define CPPTEMPLATE_SCOPED_PROFILER(x) (void) 0
-#endif
