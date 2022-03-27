@@ -41,7 +41,7 @@ jobs:
 
       # template: uncomment if using std::execution stuff for gcc
       #      - name: apt dependencies
-      #        run: sudo apt install -y libtbb-dev
+      #        run: sudo apt update && sudo apt install -y --no-install-recommends libtbb-dev
       #        if: startsWith(matrix.os, 'ubuntu')
 
       # template: add -DCMAKE_CXX_STANDARD=${{ matrix.cppstd }} to cmake command if multiple std version testing is wanted
