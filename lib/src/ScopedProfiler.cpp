@@ -17,7 +17,7 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#include "ScopedProfiler.hpp"
+#include "lib/ScopedProfiler.hpp"
 
 #include <iostream>
 

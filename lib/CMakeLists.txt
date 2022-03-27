@@ -7,4 +7,4 @@ add_library(
         src/ScopedProfiler.cpp include/lib/ScopedProfiler.hpp
 )
 
-target_include_directories(${PROJECT_NAME} PRIVATE include/lib)
+target_include_directories(${PROJECT_NAME} PRIVATE include)

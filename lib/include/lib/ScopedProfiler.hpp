@@ -22,8 +22,8 @@
 #include <chrono>
 #include <utility>
 
-#include "Macros.hpp"
-#include "Time.hpp"
+#include "lib/Macros.hpp"
+#include "lib/Time.hpp"
 
 // template: adapt to your preferred namespace
 namespace cpptemplate {

@@ -17,7 +17,7 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#include "FrameManager.hpp"
+#include "lib/FrameManager.hpp"
 
 #include <sstream>
 
