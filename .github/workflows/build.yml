@@ -39,6 +39,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      # CONAN STUFF
+      - uses: actions/setup-python@v4
+
+      - name: Conan Cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.conan
+          # template: add -cpp${{ matrix.cppstd }} to cache key if multiple std version testing is wanted
+          key: ${{ runner.os }}-conan-${{ matrix.mode }}-${{ hashFiles('**/conanfile.txt') }}
+
+      - name: Install Pip Dependencies
+        run: pip install "conan<2.0"
+      # CONAN STUFF
+
       # template: uncomment if using std::execution stuff for gcc or clang
       #      - name: apt dependencies
       #        run: sudo apt update && sudo apt install -y --no-install-recommends libtbb-dev

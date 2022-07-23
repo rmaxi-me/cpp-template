@@ -17,7 +17,7 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#include <iostream>
+#include <fmt/core.h>
 
 #include "lib/ScopedProfiler.hpp"
 
@@ -25,5 +25,5 @@ int main()
 {
     CPPTEMPLATE_SCOPED_PROFILER("main()");
 
-    std::cout << "Hello world!\n";
+    fmt::print("Hello fmt!\n");
 }

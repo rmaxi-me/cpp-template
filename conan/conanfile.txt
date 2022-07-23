@@ -1,0 +1,15 @@
+[requires]
+fmt/9.0.0
+argparse/2.6
+
+# spdlog/1.10.0  # 1.10 requires fmt<9.0.0
+
+[options]
+*:shared=False
+
+[generators]
+cmake
+cmake_paths
+cmake_find_package
+
+# v1  # Increment to reset gh-action cache
