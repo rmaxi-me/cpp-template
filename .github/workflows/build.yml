@@ -53,7 +53,7 @@ jobs:
 
       - name: Install Pip Dependencies
         run: pip install "conan<2.0"
-      # CONAN STUFF
+      # END OF CONAN STUFF
 
       # template: uncomment if using std::execution stuff for gcc or clang
       #      - name: apt dependencies
