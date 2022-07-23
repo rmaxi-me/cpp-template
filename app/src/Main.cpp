@@ -17,7 +17,9 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
+#include <execution>
 #include <iostream>
+#include <vector>
 
 #include "lib/ScopedProfiler.hpp"
 
@@ -26,4 +28,7 @@ int main()
     CPPTEMPLATE_SCOPED_PROFILER("main()");
 
     std::cout << "Hello world!\n";
+
+    std::vector<int> vec(7'000'000);
+    std::sort(std::execution::par_unseq, vec.begin(), vec.end());
 }
