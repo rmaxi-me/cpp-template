@@ -33,4 +33,4 @@ if (${CMAKE_BUILD_TYPE} MATCHES "Release" AND ${${PROJECT_PREFIX}_ENABLE_IPO})
 endif ()
 
 add_subdirectory(lib)
-add_subdirectory(cli)
+add_subdirectory(app)

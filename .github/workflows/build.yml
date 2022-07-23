@@ -39,7 +39,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # template: uncomment if using std::execution stuff for gcc
+      # template: uncomment if using std::execution stuff for gcc or clang
       #      - name: apt dependencies
       #        run: sudo apt update && sudo apt install -y --no-install-recommends libtbb-dev
       #        if: startsWith(matrix.os, 'ubuntu')
