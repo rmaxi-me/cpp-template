@@ -24,14 +24,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu-20.04, macos-11, windows-2019 ]
+        os: [ ubuntu-22.04, macos-12, windows-2022 ]
         mode: [ "Debug", "Release" ]
         # cppstd: [ 17, 20 ] # template: enable if multiple std version testing is wanted
         include:
-          - os: ubuntu-20.04
-            cxx-override: CC=gcc-10 CXX=g++-10
-          - os: macos-11
-          - os: windows-2019
+          - os: ubuntu-22.04
+            #cxx-override: CC=gcc-10 CXX=g++-10
+          - os: macos-12
+          - os: windows-2022
             pdb-path: ./build/*.pdb
 
     runs-on: ${{ matrix.os }}
