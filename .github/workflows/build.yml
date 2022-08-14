@@ -52,14 +52,14 @@ jobs:
           mkdir build
           cd build
           ${{ matrix.cxx-override }} \
-          cmake -DCMAKE_BUILD_TYPE=${{ matrix.mode }} -DCPPTEMPLATE_BUILD_TESTS=${{ matrix.mode == "Debug" ? "ON" : "OFF" }} ..
+          cmake -DCMAKE_BUILD_TYPE=${{ matrix.mode }} -DCPPTEMPLATE_BUILD_TESTS=${{ matrix.mode == 'Debug' ? 'ON' : 'OFF' }} ..
 
       - name: Build
         working-directory: build
         run: cmake --build . --config ${{ matrix.mode }}
 
       - name: Run tests
-        if: ${{ matrix.mode == "Debug" }}
+        if: ${{ matrix.mode == 'Debug' }}
         working-directory: build/tests
         run: ctest
 
