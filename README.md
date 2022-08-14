@@ -21,5 +21,6 @@ This is my basic structure that I use for my C++ projects. Feel free to use it i
 * `.gitignore` to exclude unwanted files/dirs
 * GitHub Action workflow to build the project
 * CMake configurations, compiler warnings and cool flags
+* Unit tests preset (easily removable)
 * [**cpp-utils**](https://github.com/MaximeHouis/cpp-utils), a collection of C++ utilities made by me
 * [**conan branch**](https://github.com/MaximeHouis/cpp-template/tree/conan) for conan projects *(duh)*

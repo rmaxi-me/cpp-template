@@ -68,4 +68,5 @@ else ()
     message(AUTHOR_WARNING "No compiler warnings set for '${CMAKE_CXX_COMPILER_ID}' compiler.")
 endif ()
 
-add_compile_options(${PROJECT_WARNINGS})
+## template: uncomment to apply warnings to all targets
+# add_compile_options(${PROJECT_WARNINGS})
