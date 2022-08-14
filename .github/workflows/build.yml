@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: recursive
 
       - name: Run clang-format
         uses: jidicula/clang-format-action@v4.6.2
@@ -28,7 +28,7 @@ jobs:
       matrix:
         os: [ ubuntu-22.04, macos-12, windows-2022 ]
         mode: [ "Debug", "Release" ]
-        # cppstd: [ 17, 20 ] # template: enable if multiple std version testing is wanted
+        # cxx-std: [ 17, 20 ] # template: enable if multiple std version testing is wanted
         include:
           - os: ubuntu-22.04
             #cxx-override: CC=gcc-10 CXX=g++-10
@@ -46,7 +46,7 @@ jobs:
       #        run: sudo apt update && sudo apt install -y --no-install-recommends libtbb-dev
       #        if: startsWith(matrix.os, 'ubuntu')
 
-      # template: add -DCMAKE_CXX_STANDARD=${{ matrix.cppstd }} to cmake command if multiple std version testing is wanted
+      # template: add -DCMAKE_CXX_STANDARD=${{ matrix.cxx-std }} to cmake command if multiple std version testing is wanted
       - name: Configure
         run: |
           mkdir build
