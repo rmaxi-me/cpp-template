@@ -32,5 +32,5 @@ if (${CMAKE_BUILD_TYPE} MATCHES "Release" AND ${${PROJECT_PREFIX}_ENABLE_IPO})
     endif ()
 endif ()
 
-add_subdirectory(lib)
+add_subdirectory(lib/cpp-utils/utils)
 add_subdirectory(app)
