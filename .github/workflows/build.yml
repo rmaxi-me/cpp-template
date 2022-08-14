@@ -14,8 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: recursive
 
       - name: Run clang-format
         uses: jidicula/clang-format-action@v4.6.2
@@ -40,6 +38,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
 
       # template: uncomment if using std::execution stuff for gcc or clang
       #      - name: apt dependencies
