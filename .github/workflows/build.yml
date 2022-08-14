@@ -52,11 +52,16 @@ jobs:
           mkdir build
           cd build
           ${{ matrix.cxx-override }} \
-          cmake -DCMAKE_BUILD_TYPE=${{ matrix.mode }} ..
+          cmake -DCMAKE_BUILD_TYPE=${{ matrix.mode }} -DCPPTEMPLATE_BUILD_TESTS=${{ matrix.mode == 'Debug' }} ..
 
       - name: Build
         working-directory: build
         run: cmake --build . --config ${{ matrix.mode }}
+
+      - name: Run tests
+        if: ${{ matrix.mode == 'Debug' }}
+        working-directory: build/tests
+        run: ctest
 
       # template: uncomment and fill paths to upload useful binaries or other files as artifacts
   #      - name: Upload Artifacts

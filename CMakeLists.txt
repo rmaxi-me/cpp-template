@@ -34,3 +34,7 @@ endif ()
 
 add_subdirectory(lib/cpp-utils/utils)
 add_subdirectory(app)
+
+if (${PROJECT_PREFIX}_BUILD_TESTS)
+    add_subdirectory(tests)
+endif ()
