@@ -15,3 +15,5 @@ target_include_directories(${PROJECT_NAME}-tests PRIVATE include/)  # template: 
 
 include(GoogleTest)
 gtest_discover_tests(${PROJECT_NAME}-tests PROPERTIES TIMEOUT 600 WORKING_DIRECTORY ${PROJECT_BINARY_DIR})
+
+message(STATUS "Unit tests enabled")

@@ -52,7 +52,7 @@ jobs:
           mkdir build
           cd build
           ${{ matrix.cxx-override }} \
-          cmake -DCMAKE_BUILD_TYPE=${{ matrix.mode }} -DCPPTEMPLATE_BUILD_TESTS=${{ matrix.mode == 'Debug' ? 'ON' : 'OFF' }} ..
+          cmake -DCMAKE_BUILD_TYPE=${{ matrix.mode }} -DCPPTEMPLATE_BUILD_TESTS=${{ matrix.mode == 'Debug' }} ..
 
       - name: Build
         working-directory: build
