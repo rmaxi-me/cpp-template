@@ -18,12 +18,13 @@
  */
 
 #include <fmt/core.h>
+#include <utils/ScopeProfiler.hpp>
 
-#include "lib/ScopedProfiler.hpp"
+#include <iostream>
 
 int main()
 {
-    CPPTEMPLATE_SCOPED_PROFILER("main()");
+    UTILS_SCOPE_PROFILER("main()");
 
     fmt::print("Hello fmt!\n");
 }
