@@ -10,6 +10,7 @@ This is my basic structure that I use for my C++ projects. Feel free to use it i
 ## How
 
 * Click on the big green `Use this template` button
+  * *Make sure you tick the `Include all branches` checkbox if you want the conan template!*
 * You can search for `template:` through files to access main code parts to change depending on your project
 * Remove what you don't like
 * Add stuff you like
