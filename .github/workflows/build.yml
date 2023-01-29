@@ -6,6 +6,12 @@ defaults:
   run:
     shell: bash
 
+env:
+  CONAN_REVISIONS_ENABLED: 1
+  CONAN_SYSREQUIRES_MODE: verify
+  CONAN_COLOR_DISPLAY: 1
+  CONAN_NON_INTERACTIVE: 1
+
 jobs:
 
   # template: remove if not using clang-format
