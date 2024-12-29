@@ -1,8 +1,6 @@
 # cpp-template
 My C++ projects template :)
 
-Check the [**conan branch**](https://github.com/rmaxi-me/cpp-template/tree/conan) if you would like to use Conan!
-
 ## Why
 
 This is my basic structure that I use for my C++ projects. Feel free to use it if you like it.
@@ -10,7 +8,6 @@ This is my basic structure that I use for my C++ projects. Feel free to use it i
 ## How
 
 * Click on the big green `Use this template` button
-  * *Make sure you tick the `Include all branches` checkbox if you want the conan template!*
 * You can search for `template:` through files to access main code parts to change depending on your project
 * Remove what you don't like
 * Add stuff you like
@@ -24,4 +21,3 @@ This is my basic structure that I use for my C++ projects. Feel free to use it i
 * CMake configurations, compiler warnings and cool flags
 * Unit tests preset (easily removable)
 * [**cpp-utils**](https://github.com/rmaxi-me/cpp-utils), a collection of C++ utilities made by me
-* [**conan branch**](https://github.com/rmaxi-me/cpp-template/tree/conan) for conan projects *(duh)*
